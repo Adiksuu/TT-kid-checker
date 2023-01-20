@@ -52,6 +52,25 @@ $blue-color: #00e7dc;
             display: flex;
             flex-direction: column;
             justify-content: center;
+            position: relative;
+
+            .time {
+                height: 32px;
+                width: 72px;
+                border-radius: 16px;
+                background: #ffffff10;
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                position: absolute;
+                top: 16px;
+                right: 16px;
+                
+                p {
+                    font-size: 16px;
+                    font-weight: 400;
+                }
+            }
 
             p {
                 color: $light-theme;

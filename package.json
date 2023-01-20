@@ -1,6 +1,6 @@
 {
   "name": "tt-checker",
-  "version": "1.0.1",
+  "version": "1.0.2",
   "description": "Check if you are a child of tiktok",
   "main": "./src/scripts/script.js",
   "scripts": {

@@ -44,6 +44,23 @@
   display: flex;
   flex-direction: column;
   justify-content: center;
+  position: relative;
+}
+.home .content .box .time, .home .content .register .time, .home .content .gameMenu .time, .home .content .leaderstats .time {
+  height: 32px;
+  width: 72px;
+  border-radius: 16px;
+  background: rgba(255, 255, 255, 0.062745098);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: absolute;
+  top: 16px;
+  right: 16px;
+}
+.home .content .box .time p, .home .content .register .time p, .home .content .gameMenu .time p, .home .content .leaderstats .time p {
+  font-size: 16px;
+  font-weight: 400;
 }
 .home .content .box p, .home .content .register p, .home .content .gameMenu p, .home .content .leaderstats p {
   color: #fff;

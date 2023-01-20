@@ -18,6 +18,9 @@ let score = 0
 let nickname = ''
 let userName;
 
+let timeSpend = 0;
+let endQuiz = false
+
 const questions = {
     1: "How long do you use TikTok per day?",
     2: "Do you know the trends on TikTok?",
@@ -58,10 +61,11 @@ function nextQuestion() {
         option_3.classList.remove('hide')
     }
     else if (questionNum > 3) {
-        questionTitle.innerHTML = 'You Completed The Test!'
+        questionTitle.innerHTML = `You Completed The Test in ${timeSpend} seconds!`
         option_1.classList.add('hide')
         option_2.classList.add('hide')
         option_3.classList.add('hide')
+        endQuiz = true
         window.setTimeout(() => {
             window.location.search = '?game=menu'
         }, 2000)
@@ -202,3 +206,12 @@ window.setInterval(() => {
         }
     }
 })
+
+const timeCheck = document.querySelector('#timeCheck')
+
+window.setInterval(() => {
+    if (window.location.search == '?game=start' && endQuiz == false) {
+        timeSpend++
+        timeCheck.innerHTML = `${timeSpend} sec`
+    }
+}, 1000)

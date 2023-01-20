@@ -1,0 +1,105 @@
+@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700;800&display=swap");
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  scroll-behavior: smooth;
+  font-family: "Poppins", monospace;
+  transition: 0.3s linear;
+  list-style: none;
+  border: none;
+  outline: none;
+}
+
+.home {
+  background: #0f0f0f;
+  height: 100vh;
+}
+.home .content {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  flex-direction: column;
+  position: relative;
+  top: 64px;
+}
+.home .content .title {
+  color: #fff;
+  font-size: 32px;
+  font-weight: 500;
+}
+.home .content .title span i {
+  background: linear-gradient(to right, #ee0049 5%, #00e7dc);
+  background-size: cover;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+.home .content .box {
+  margin-top: 48px;
+  border-radius: 16px;
+  width: 65%;
+  height: 256px;
+  background: rgba(255, 255, 255, 0.0235294118);
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+.home .content .box p {
+  color: #fff;
+  font-size: 20px;
+  text-transform: uppercase;
+}
+.home .content .box p:hover {
+  color: #ee0049;
+  cursor: pointer;
+}
+.home .content .box .select {
+  margin-top: 48px;
+  display: flex;
+  gap: 8px;
+  justify-content: center;
+}
+.home .content .box .select button {
+  height: 32px;
+  width: 96px;
+  border-radius: 16px;
+  background: rgba(255, 255, 255, 0.0823529412);
+  color: #fff;
+  font-weight: 600;
+  font-size: 16px;
+  cursor: pointer;
+}
+.home .content .box .select button.hide {
+  display: none;
+}
+.home .content .box .select button:hover {
+  background: rgba(255, 255, 255, 0.062745098);
+  color: #ee0049;
+}
+.home .content .result {
+  margin-top: 32px;
+  display: none;
+}
+.home .content .result h2 {
+  color: #fff;
+  font-weight: 400;
+}
+.home .content .result h2 span {
+  font-weight: 600;
+  text-decoration: underline;
+}
+.home .content .result.show {
+  display: block;
+}
+
+@media screen and (max-width: 868px) {
+  .home .content .box {
+    width: calc(100% - 16px);
+  }
+  .home .content .box .select {
+    flex-wrap: wrap;
+  }
+}
+
+/*# sourceMappingURL=style.css.map */

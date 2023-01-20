@@ -1,0 +1,14 @@
+{
+  "name": "tt-checker",
+  "version": "1.0.0",
+  "description": "Check if you are a child of tiktok",
+  "main": "./src/scripts/script.js",
+  "scripts": {
+    "compile": "sass --watch ./src/assets/scss/style.scss ./src/assets/css/style.css"
+  },
+  "author": "Adiksuu",
+  "license": "ISC",
+  "dependencies": {
+    "sass": "^1.57.1"
+  }
+}

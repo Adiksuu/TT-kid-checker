@@ -1,0 +1,123 @@
+@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700;800&display=swap");
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    scroll-behavior: smooth;
+    font-family: 'Poppins', monospace;
+    transition: .3s linear;
+    list-style: none;
+    border: none;
+    outline: none;
+}
+
+$dark-theme: #0f0f0f;
+$light-theme: #fff;
+$red-color: #ee0049;
+$blue-color: #00e7dc;
+
+.home {
+    background: $dark-theme;
+    height: 100vh;
+
+    .content {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        text-align: center;
+        flex-direction: column;
+        position: relative;
+        top: 64px;
+
+        .title {
+            color: $light-theme;
+            font-size: 32px;
+            font-weight: 500;
+
+            span i{
+                background: linear-gradient(to right, $red-color 5%, $blue-color);
+                background-size: cover;
+                -webkit-background-clip: text;
+                -webkit-text-fill-color: transparent;
+            }
+        }
+
+        .box {
+            margin-top: 48px;
+            border-radius: 16px;
+            width: 65%;
+            height: 256px;
+            background: #ffffff06;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+
+            p {
+                color: $light-theme;
+                font-size: 20px;
+                text-transform: uppercase;
+            }
+            p:hover {
+                color: $red-color;
+                cursor: pointer;
+            }
+
+            .select {
+                margin-top: 48px;
+                display: flex;
+                gap: 8px;
+                justify-content: center;
+
+                button {
+                    height: 32px;
+                    width: 96px;
+                    border-radius: 16px;
+                    background: #ffffff15;
+                    color: $light-theme;
+                    font-weight: 600;
+                    font-size: 16px;
+                    cursor: pointer;
+                }
+                button.hide {
+                    display: none;
+                }
+                button:hover {
+                    background: #ffffff10;
+                    color: $red-color;
+                }
+            }
+        }
+        .result {
+            margin-top: 32px;
+            display: none;
+
+            h2 {
+                color: $light-theme;
+                font-weight: 400;
+
+                span {
+                    font-weight: 600;
+                    text-decoration: underline;
+                }
+            }
+        }
+        .result.show {
+            display: block;
+        }
+    }
+}
+
+@media screen and (max-width: 868px) {
+    .home {
+        .content {
+            .box {
+                width: calc(100% - 16px);
+                
+                .select {
+                    flex-wrap: wrap;
+                }
+            }
+        }
+    }
+}

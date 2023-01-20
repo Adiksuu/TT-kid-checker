@@ -40,11 +40,18 @@
             </div>
             <div class="profile hide" id="profile">
                 <div class="top">
-                    <img src="./src/assets/images/user.png" alt="">
+                    <img src="./src/assets/images/user.png" alt="" onclick="changeAvatar();" id="avatarToChange">
                     <p id="profileName">User</p>
                 </div>
                 <div class="info">
                     <p id="profileText">10sec - 100%</p>
+                </div>
+            </div>
+            <div class="url" id="urlType">
+                <p>Enter a URL of Image</p>
+                <div class="url_box">
+                    <input type="text" placeholder="Enter a URL" id="avatarInput">
+                    <button onclick="sumAvatar();"><i class="fas fa-check"></i></button>
                 </div>
             </div>
             <!-- <div class="leaderstats hide" id="leaderstats">

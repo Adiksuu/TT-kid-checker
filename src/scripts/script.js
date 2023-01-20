@@ -30,6 +30,8 @@ let latestPer;
 
 let nextSound = new Audio('./src/assets/images/level.mp4')
 
+let avatar = './src/assets/images/user.png'
+
 const questions = {
     1: "How long do you use TikTok per day?",
     2: "Do you know the trends on TikTok?",
@@ -52,6 +54,14 @@ const buttonQuestion_3 = {
     2: "No",
     3: "Sometimes"
 }
+const completeText = {
+    0: "You're not a tiktok kid one percent! Congratulations!",
+    5: "You're a bit of a tiktok kid, but there's no tragedy",
+    25: "You use tiktok quite often, it is recommended to limit the time spent on this application",
+    45: "You are going to be a tiktok kid, reduce your time spent in this app",
+    75: "You're getting worse! Try to put the tiktok aside for a while, because you become a tiktok baby pretty quickly!",
+    90: "You are a child of tiktok, put away tiktok for a long period of time or try to reduce its use significantly!"
+}
 
 function nextQuestion() {
     nextSound.play() 
@@ -71,7 +81,24 @@ function nextQuestion() {
         option_3.classList.remove('hide')
     }
     else if (questionNum > 3) {
-        questionTitle.innerHTML = `You Completed The Test in ${timeSpend} seconds!`
+        if (score == 0) {
+            questionTitle.innerHTML = `You Completed The Test in ${timeSpend} seconds! <br> <span>${completeText[0]}</span>`
+        }
+        if (score >= 5) {
+            questionTitle.innerHTML = `You Completed The Test in ${timeSpend} seconds! <br> <span>${completeText[5]}</span>`
+        }
+        if (score >= 25) {
+            questionTitle.innerHTML = `You Completed The Test in ${timeSpend} seconds! <br> <span>${completeText[25]}</span>`
+        }
+        if (score >= 45) {
+            questionTitle.innerHTML = `You Completed The Test in ${timeSpend} seconds! <br> <span>${completeText[45]}</span>`
+        }
+        if (score >= 75) {
+            questionTitle.innerHTML = `You Completed The Test in ${timeSpend} seconds! <br> <span>${completeText[75]}</span>`
+        }
+        if (score >= 90) {
+            questionTitle.innerHTML = `You Completed The Test in ${timeSpend} seconds! <br> <span>${completeText[90]}</span>`
+        }
         option_1.classList.add('hide')
         option_2.classList.add('hide')
         option_3.classList.add('hide')
@@ -161,9 +188,11 @@ function sumName() {
 function toMenu() {
     window.location.search = '?game=menu'
 }
-// function toLeaderstats() {
-//     window.location.search = '?game=leaderboard'
-// }
+const avatarInput = document.querySelector('#avatarInput')
+const urlType = document.querySelector('#urlType')
+function changeAvatar() {
+    urlType.classList.toggle('show')
+}
 
 
 window.setInterval(() => {
@@ -175,7 +204,8 @@ function save() {
     let Save = {
         userName: userName,
         latestTime: latestTime,
-        latestPer: latestPer
+        latestPer: latestPer,
+        avatar: avatar
     };
     localStorage.setItem("Saved", JSON.stringify(Save));
 }
@@ -187,6 +217,8 @@ function load() {
     latestTime = SaveGame.latestTime;
     if (typeof SaveGame.latestPer !== "undefined")
     latestPer = SaveGame.latestPer;
+    if (typeof SaveGame.avatar !== "undefined")
+    avatar = SaveGame.avatar;
     checkName();
 }
 function startGame() {
@@ -219,6 +251,15 @@ window.setTimeout(() => {
     // }
 })
 
+function sumAvatar() {
+    if (avatarInput.value != '') {
+        avatar = avatarInput.value
+        save();
+        avatarInput.value = ''
+        changeAvatar()
+    }
+}
+
 window.setInterval(() => {
     profileName.innerHTML = userName
     if (latestPer == undefined) {
@@ -243,3 +284,9 @@ window.setInterval(() => {
         timeCheck.innerHTML = `${timeSpend} sec`
     }
 }, 1000)
+
+const avatarToChange = document.querySelector('#avatarToChange')
+
+window.setInterval(() => {
+    avatarToChange.src = avatar
+})

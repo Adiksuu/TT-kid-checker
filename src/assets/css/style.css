@@ -90,6 +90,12 @@
   font-size: 20px;
   text-transform: uppercase;
 }
+.home .content .box p span, .home .content .register p span, .home .content .gameMenu p span, .home .content .leaderstats p span {
+  font-size: 17px;
+  text-transform: capitalize;
+  text-decoration: underline;
+  color: #00e7dc;
+}
 .home .content .box p:hover, .home .content .register p:hover, .home .content .gameMenu p:hover, .home .content .leaderstats p:hover {
   color: #ee0049;
   cursor: pointer;
@@ -129,6 +135,50 @@
   background: rgba(255, 255, 255, 0.062745098);
   color: #ee0049;
 }
+.home .content .url {
+  width: 512px;
+  height: 96px;
+  background: rgba(255, 255, 255, 0.062745098);
+  position: fixed;
+  border-radius: 16px;
+  bottom: 16px;
+  display: none;
+}
+.home .content .url .url_box {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-top: 16px;
+}
+.home .content .url p {
+  color: #fff;
+  font-weight: 400;
+  margin-top: 8px;
+  font-size: 18px;
+}
+.home .content .url input {
+  height: 32px;
+  width: 196px;
+  border-radius: 16px 0 0 16px;
+  padding: 3px 9px;
+  background: rgba(255, 255, 255, 0.0235294118);
+  color: #fff;
+}
+.home .content .url button {
+  height: 32px;
+  width: 32px;
+  color: #fff;
+  background: rgba(255, 255, 255, 0.062745098);
+  border-radius: 0 16px 16px 0;
+  cursor: pointer;
+}
+.home .content .url button:hover {
+  background: rgba(255, 255, 255, 0.0235294118);
+  color: #ee0049;
+}
+.home .content .url.show {
+  display: block;
+}
 .home .content .profile {
   background: rgba(255, 255, 255, 0.0235294118);
   margin-top: 64px;
@@ -153,6 +203,11 @@
 .home .content .profile .top img {
   height: 72px;
   width: 72px;
+  cursor: pointer;
+  border-radius: 9999px;
+}
+.home .content .profile .top img:hover {
+  opacity: 0.8;
 }
 .home .content .profile .info {
   position: relative;

@@ -101,6 +101,13 @@ $blue-color: #00e7dc;
                 color: $light-theme;
                 font-size: 20px;
                 text-transform: uppercase;
+
+                span {
+                    font-size: 17px;
+                    text-transform: capitalize;
+                    text-decoration: underline;
+                    color: $blue-color;
+                }
             }
             p:hover {
                 color: $red-color;
@@ -147,6 +154,52 @@ $blue-color: #00e7dc;
                 }
             }
         }
+        .url {
+            width: 512px;
+            height: 96px;
+            background: #ffffff10;
+            position: fixed;
+            border-radius: 16px;
+            bottom: 16px;
+            display: none;
+
+            .url_box {
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                margin-top: 16px;
+            }
+
+            p {
+                color: $light-theme;
+                font-weight: 400;
+                margin-top: 8px;
+                font-size: 18px;
+            }
+            input {
+                height: 32px;
+                width: 196px;
+                border-radius: 16px 0 0 16px;
+                padding: 3px 9px;
+                background: #ffffff06;
+                color: $light-theme;
+            }
+            button {
+                height: 32px;
+                width: 32px;
+                color: $light-theme;
+                background: #ffffff10;
+                border-radius: 0 16px 16px 0;
+                cursor: pointer;
+            }
+            button:hover {
+                background: #ffffff06;
+                color: $red-color;
+            }
+        }
+        .url.show {
+            display: block;
+        }
         .profile {
             background: #ffffff06;
             margin-top: 64px;
@@ -172,6 +225,11 @@ $blue-color: #00e7dc;
                 img {
                     height: 72px;
                     width: 72px;
+                    cursor: pointer;
+                    border-radius: 9999px;
+                }
+                img:hover {
+                    opacity: .80;
                 }
             }
             .info {

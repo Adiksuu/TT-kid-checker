@@ -129,6 +129,40 @@
   background: rgba(255, 255, 255, 0.062745098);
   color: #ee0049;
 }
+.home .content .profile {
+  background: rgba(255, 255, 255, 0.0235294118);
+  margin-top: 64px;
+  border-radius: 16px;
+  height: 128px;
+  width: 512px;
+}
+.home .content .profile .top {
+  position: relative;
+  top: -32px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: auto;
+  flex-direction: column;
+}
+.home .content .profile .top p {
+  color: #fff;
+  font-weight: 500;
+  font-size: 18px;
+}
+.home .content .profile .top img {
+  height: 72px;
+  width: 72px;
+}
+.home .content .profile .info {
+  position: relative;
+  bottom: 16px;
+}
+.home .content .profile .info p {
+  color: #fff;
+  font-size: 18px;
+  font-weight: 500;
+}
 .home .content .register .name {
   gap: 0;
 }
@@ -171,7 +205,7 @@
   background: rgba(255, 255, 255, 0.0235294118);
   color: #00e7dc;
 }
-.home .content .box.hide, .home .content .register.hide, .home .content .gameMenu.hide, .home .content .leaderstats.hide {
+.home .content .box.hide, .home .content .register.hide, .home .content .gameMenu.hide, .home .content .leaderstats.hide, .home .content .profile.hide {
   display: none;
 }
 .home .content .result {
@@ -191,10 +225,10 @@
 }
 
 @media screen and (max-width: 868px) {
-  .home .content .box, .home .content .register, .home .content .gameMenu, .home .content .leaderstats {
+  .home .content .box, .home .content .register, .home .content .gameMenu, .home .content .leaderstats, .home .content .profile {
     width: calc(100% - 16px);
   }
-  .home .content .box .select, .home .content .register .select, .home .content .gameMenu .select, .home .content .leaderstats .select {
+  .home .content .box .select, .home .content .register .select, .home .content .gameMenu .select, .home .content .leaderstats .select, .home .content .profile .select {
     flex-wrap: wrap;
   }
 }

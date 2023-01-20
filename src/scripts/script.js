@@ -11,6 +11,10 @@ const result = document.querySelector('.result')
 
 const result_name = document.querySelector('#result_name')
 
+const profileName = document.querySelector('#profileName')
+const profileText = document.querySelector('#profileText')
+const profile = document.querySelector('#profile')
+
 let questionNum = 1
 
 let score = 0
@@ -20,6 +24,11 @@ let userName;
 
 let timeSpend = 0;
 let endQuiz = false
+
+let latestTime;
+let latestPer;
+
+let nextSound = new Audio('./src/assets/images/level.mp4')
 
 const questions = {
     1: "How long do you use TikTok per day?",
@@ -45,6 +54,7 @@ const buttonQuestion_3 = {
 }
 
 function nextQuestion() {
+    nextSound.play() 
     if (questionNum == 2) {
         questionTitle.innerHTML = questions[2]
         option_1.innerHTML = buttonQuestion_2[1]
@@ -66,6 +76,9 @@ function nextQuestion() {
         option_2.classList.add('hide')
         option_3.classList.add('hide')
         endQuiz = true
+        latestPer = score
+        latestTime = timeSpend
+        save()
         window.setTimeout(() => {
             window.location.search = '?game=menu'
         }, 2000)
@@ -160,14 +173,20 @@ window.setInterval(() => {
 
 function save() {
     let Save = {
-        userName: userName
+        userName: userName,
+        latestTime: latestTime,
+        latestPer: latestPer
     };
     localStorage.setItem("Saved", JSON.stringify(Save));
 }
 function load() {
     var SaveGame = JSON.parse(localStorage.getItem("Saved"));
     if (typeof SaveGame.userName !== "undefined")
-        userName = SaveGame.userName;
+    userName = SaveGame.userName;
+    if (typeof SaveGame.latestTime !== "undefined")
+    latestTime = SaveGame.latestTime;
+    if (typeof SaveGame.latestPer !== "undefined")
+    latestPer = SaveGame.latestPer;
     checkName();
 }
 function startGame() {
@@ -183,11 +202,14 @@ window.setTimeout(() => {
     if (window.location.search == '?game=menu') {
         registerEnd.classList.add('hide')
         gameMenuStart.classList.remove('hide')
+        profile.classList.remove('hide')
     } 
     else if (window.location.search == '?game=start') {
         gameStart.classList.remove('hide')
         gameMenuStart.classList.add('hide')
         registerEnd.classList.add('hide')
+        profile.classList.add('hide')
+
     }
     // else if (window.location.search == '?game=leaderboard') {
     //     gameStart.classList.add('hide')
@@ -198,6 +220,12 @@ window.setTimeout(() => {
 })
 
 window.setInterval(() => {
+    profileName.innerHTML = userName
+    if (latestPer == undefined) {
+        profileText.innerHTML = `Play first time`
+    } else {
+        profileText.innerHTML = `${latestTime}sec - ${latestPer}%`
+    }
     if (userName != undefined) {
         if (window.location.search != '?game=menu') {
             if (window.location.search != '?game=start') {

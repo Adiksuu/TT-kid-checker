@@ -147,6 +147,44 @@ $blue-color: #00e7dc;
                 }
             }
         }
+        .profile {
+            background: #ffffff06;
+            margin-top: 64px;
+            border-radius: 16px;
+            height: 128px;
+            width: 512px;
+
+            .top {
+                position: relative;
+                top: -32px;
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                margin: auto;
+                flex-direction: column;
+
+                p {
+                    color: $light-theme;
+                    font-weight: 500;
+                    font-size: 18px;
+                }
+
+                img {
+                    height: 72px;
+                    width: 72px;
+                }
+            }
+            .info {
+                position: relative;
+                bottom: 16px;
+
+                p {
+                    color: $light-theme;
+                    font-size: 18px;
+                    font-weight: 500;
+                }
+            }
+        }
         .register {
             .name {
                 gap: 0;
@@ -195,7 +233,7 @@ $blue-color: #00e7dc;
                 color: $blue-color;
             }
         }
-        .box.hide, .register.hide, .gameMenu.hide, .leaderstats.hide {
+        .box.hide, .register.hide, .gameMenu.hide, .leaderstats.hide, .profile.hide {
             display: none;
         }
         .result {
@@ -221,7 +259,7 @@ $blue-color: #00e7dc;
 @media screen and (max-width: 868px) {
     .home {
         .content {
-            .box, .register, .gameMenu, .leaderstats {
+            .box, .register, .gameMenu, .leaderstats, .profile {
                 width: calc(100% - 16px);
                 
                 .select {

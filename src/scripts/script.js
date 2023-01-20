@@ -1,3 +1,4 @@
+
 const option_1 = document.querySelector('#option_1')
 const option_2 = document.querySelector('#option_2')
 const option_3 = document.querySelector('#option_3')
@@ -8,9 +9,14 @@ const questionTitle = document.querySelector('#question')
 const result_score = document.querySelector('#result_score')
 const result = document.querySelector('.result')
 
+const result_name = document.querySelector('#result_name')
+
 let questionNum = 1
 
 let score = 0
+
+let nickname = ''
+let userName;
 
 const questions = {
     1: "How long do you use TikTok per day?",
@@ -56,6 +62,9 @@ function nextQuestion() {
         option_1.classList.add('hide')
         option_2.classList.add('hide')
         option_3.classList.add('hide')
+        window.setTimeout(() => {
+            window.location.search = '?game=menu'
+        }, 2000)
     }
 }
 
@@ -112,8 +121,84 @@ option_5.addEventListener('click', function() {
 
 window.setInterval(() => {
     result_score.innerHTML = `${score}%`
+    result_name.innerHTML = userName
 
     if (questionNum >= 2) {
         result.classList.add('show')
+    }
+})
+
+function checkName() {
+    if (userName == undefined && window.location.search != '?login=true') {
+        window.location.search = '?login=true'
+    }
+}
+
+function sumName() {
+    if (userName == undefined) {
+        userName = nickname
+        save()
+        window.location.search = '?game=menu'
+    }
+}
+function toMenu() {
+    window.location.search = '?game=menu'
+}
+// function toLeaderstats() {
+//     window.location.search = '?game=leaderboard'
+// }
+
+
+window.setInterval(() => {
+    let name = document.querySelector('#nickname')
+    nickname = name.value
+})
+
+function save() {
+    let Save = {
+        userName: userName
+    };
+    localStorage.setItem("Saved", JSON.stringify(Save));
+}
+function load() {
+    var SaveGame = JSON.parse(localStorage.getItem("Saved"));
+    if (typeof SaveGame.userName !== "undefined")
+        userName = SaveGame.userName;
+    checkName();
+}
+function startGame() {
+    window.location.search = '?game=start'
+}
+
+const gameStart = document.querySelector('#gameStart')
+const registerEnd = document.querySelector('#registerEnd')
+const gameMenuStart = document.querySelector('#gameMenuStart')
+// const leaderstats = document.querySelector('#leaderstats')
+
+window.setTimeout(() => {
+    if (window.location.search == '?game=menu') {
+        registerEnd.classList.add('hide')
+        gameMenuStart.classList.remove('hide')
+    } 
+    else if (window.location.search == '?game=start') {
+        gameStart.classList.remove('hide')
+        gameMenuStart.classList.add('hide')
+        registerEnd.classList.add('hide')
+    }
+    // else if (window.location.search == '?game=leaderboard') {
+    //     gameStart.classList.add('hide')
+    //     gameMenuStart.classList.add('hide')
+    //     registerEnd.classList.add('hide')
+    //     leaderstats.classList.remove('hide')
+    // }
+})
+
+window.setInterval(() => {
+    if (userName != undefined) {
+        if (window.location.search != '?game=menu') {
+            if (window.location.search != '?game=start') {
+                window.location.search = '?game=menu'
+            }
+        }
     }
 })

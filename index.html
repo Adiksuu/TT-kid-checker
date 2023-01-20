@@ -9,12 +9,12 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.2/css/all.min.css">
     <link rel="shortcut icon" href="./src/assets/images/tt-icon.png" type="image/x-icon">
 </head>
-<body>
+<body onload="load()">
 
     <section class="home" id="home">
         <div class="content">
             <h1 class="title">Are you a <span><i class="fab fa-tiktok"></i> TikTok</span> kid?</h1>
-            <div class="box">
+            <div class="box hide" id="gameStart">
                 <p id="question">How long do you use TikTok per day?</p>
                 <div class="select">
                     <button id="option_1">0min</button>
@@ -24,8 +24,29 @@
                     <button id="option_5">3h +</button>
                 </div>
             </div>
+            <div class="register" id="registerEnd">
+                <p>Enter your name</p>
+                <div class="name">
+                    <input type="text" placeholder="Your name..." id="nickname" maxlength="12" autocomplete="off">
+                    <button id="enterName" onclick="sumName();"><i class="fas fa-check"></i></button>
+                </div>
+            </div>
+            <div class="gameMenu hide" id="gameMenuStart">
+                <button onclick="startGame();">PLAY</button>
+                <!-- <button onclick="toLeaderstats();">LEADERBOARD</button> -->
+            </div>
+            <!-- <div class="leaderstats hide" id="leaderstats">
+                <div class="stats">
+                    <p>TOP 1 <span id="top_1_name">NaN</span> - <span id="top_1_per">100%</span></p>
+                    <p>TOP 2 <span id="top_2_name">NaN</span> - <span id="top_2_per">100%</span></p>
+                    <p>TOP 3 <span id="top_3_name">NaN</span> - <span id="top_3_per">100%</span></p>
+                </div>
+                <div class="return">
+                    <button onclick="toMenu();">BACK TO MENU</button>
+                </div>
+            </div> -->
             <div class="result">
-                <h2>You are a tiktok kid in <span id="result_score">100%</span></h2>
+                <h2><span id="result_name"></span> You are a tiktok kid in <span id="result_score">100%</span></h2>
             </div>
         </div>
     </section>

@@ -35,7 +35,7 @@
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
 }
-.home .content .box {
+.home .content .box, .home .content .register, .home .content .gameMenu, .home .content .leaderstats {
   margin-top: 48px;
   border-radius: 16px;
   width: 65%;
@@ -45,22 +45,34 @@
   flex-direction: column;
   justify-content: center;
 }
-.home .content .box p {
+.home .content .box p, .home .content .register p, .home .content .gameMenu p, .home .content .leaderstats p {
   color: #fff;
   font-size: 20px;
   text-transform: uppercase;
 }
-.home .content .box p:hover {
+.home .content .box p:hover, .home .content .register p:hover, .home .content .gameMenu p:hover, .home .content .leaderstats p:hover {
   color: #ee0049;
   cursor: pointer;
 }
-.home .content .box .select {
+.home .content .box .name input, .home .content .register .name input, .home .content .gameMenu .name input, .home .content .leaderstats .name input {
+  padding: 3px 9px;
+  border-radius: 16px 0 0 16px;
+  background: rgba(255, 255, 255, 0.062745098);
+  color: #fff;
+  height: 32px;
+  width: 196px;
+}
+.home .content .box .name #enterName, .home .content .register .name #enterName, .home .content .gameMenu .name #enterName, .home .content .leaderstats .name #enterName {
+  width: 32px;
+  border-radius: 0 16px 16px 0;
+}
+.home .content .box .select, .home .content .box .name, .home .content .register .select, .home .content .register .name, .home .content .gameMenu .select, .home .content .gameMenu .name, .home .content .leaderstats .select, .home .content .leaderstats .name {
   margin-top: 48px;
   display: flex;
   gap: 8px;
   justify-content: center;
 }
-.home .content .box .select button {
+.home .content .box .select button, .home .content .box .name button, .home .content .register .select button, .home .content .register .name button, .home .content .gameMenu .select button, .home .content .gameMenu .name button, .home .content .leaderstats .select button, .home .content .leaderstats .name button {
   height: 32px;
   width: 96px;
   border-radius: 16px;
@@ -70,12 +82,57 @@
   font-size: 16px;
   cursor: pointer;
 }
-.home .content .box .select button.hide {
+.home .content .box .select button.hide, .home .content .box .name button.hide, .home .content .register .select button.hide, .home .content .register .name button.hide, .home .content .gameMenu .select button.hide, .home .content .gameMenu .name button.hide, .home .content .leaderstats .select button.hide, .home .content .leaderstats .name button.hide {
   display: none;
 }
-.home .content .box .select button:hover {
+.home .content .box .select button:hover, .home .content .box .name button:hover, .home .content .register .select button:hover, .home .content .register .name button:hover, .home .content .gameMenu .select button:hover, .home .content .gameMenu .name button:hover, .home .content .leaderstats .select button:hover, .home .content .leaderstats .name button:hover {
   background: rgba(255, 255, 255, 0.062745098);
   color: #ee0049;
+}
+.home .content .register .name {
+  gap: 0;
+}
+.home .content .leaderstats .stats {
+  gap: 16px;
+  display: flex;
+  flex-direction: column;
+}
+.home .content .leaderstats .return {
+  margin-top: 16px;
+}
+.home .content .leaderstats .return button {
+  padding: 3px 9px;
+  border-radius: 16px;
+  height: 32px;
+  background: rgba(255, 255, 255, 0.062745098);
+  cursor: pointer;
+  color: #fff;
+  width: 196px;
+}
+.home .content .leaderstats .return button:hover {
+  background: rgba(255, 255, 255, 0.0235294118);
+}
+.home .content .gameMenu {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  justify-content: center;
+  align-items: center;
+}
+.home .content .gameMenu button {
+  width: 256px;
+  height: 32px;
+  border-radius: 16px;
+  background: rgba(255, 255, 255, 0.062745098);
+  color: #fff;
+  cursor: pointer;
+}
+.home .content .gameMenu button:hover {
+  background: rgba(255, 255, 255, 0.0235294118);
+  color: #00e7dc;
+}
+.home .content .box.hide, .home .content .register.hide, .home .content .gameMenu.hide, .home .content .leaderstats.hide {
+  display: none;
 }
 .home .content .result {
   margin-top: 32px;
@@ -94,10 +151,10 @@
 }
 
 @media screen and (max-width: 868px) {
-  .home .content .box {
+  .home .content .box, .home .content .register, .home .content .gameMenu, .home .content .leaderstats {
     width: calc(100% - 16px);
   }
-  .home .content .box .select {
+  .home .content .box .select, .home .content .register .select, .home .content .gameMenu .select, .home .content .leaderstats .select {
     flex-wrap: wrap;
   }
 }

@@ -43,7 +43,7 @@ $blue-color: #00e7dc;
             }
         }
 
-        .box {
+        .box, .register, .gameMenu, .leaderstats {
             margin-top: 48px;
             border-radius: 16px;
             width: 65%;
@@ -63,7 +63,22 @@ $blue-color: #00e7dc;
                 cursor: pointer;
             }
 
-            .select {
+            .name {
+                input {
+                    padding: 3px 9px;
+                    border-radius: 16px 0 0 16px;
+                    background: #ffffff10;
+                    color: $light-theme;
+                    height: 32px;
+                    width: 196px;
+                }
+                #enterName {
+                    width: 32px;
+                    border-radius: 0 16px 16px 0;
+                }
+            }
+
+            .select, .name {
                 margin-top: 48px;
                 display: flex;
                 gap: 8px;
@@ -88,6 +103,57 @@ $blue-color: #00e7dc;
                 }
             }
         }
+        .register {
+            .name {
+                gap: 0;
+            }
+        }
+        .leaderstats {
+            .stats {
+                gap: 16px;
+                display: flex;
+                flex-direction: column;
+            }
+            .return {
+                margin-top: 16px;
+
+                button {
+                    padding: 3px 9px;
+                    border-radius: 16px;
+                    height: 32px;
+                    background: #ffffff10;
+                    cursor: pointer;
+                    color: $light-theme;
+                    width: 196px;
+                }
+                button:hover {
+                    background: #ffffff06;
+                }
+            }
+        }
+        .gameMenu {
+            display: flex;
+            flex-direction: column;
+            gap: 16px;
+            justify-content: center;
+            align-items: center;
+
+            button {
+                width: 256px;
+                height: 32px;
+                border-radius: 16px;
+                background: #ffffff10;
+                color: $light-theme;
+                cursor: pointer;
+            }
+            button:hover {
+                background: #ffffff06;
+                color: $blue-color;
+            }
+        }
+        .box.hide, .register.hide, .gameMenu.hide, .leaderstats.hide {
+            display: none;
+        }
         .result {
             margin-top: 32px;
             display: none;
@@ -111,7 +177,7 @@ $blue-color: #00e7dc;
 @media screen and (max-width: 868px) {
     .home {
         .content {
-            .box {
+            .box, .register, .gameMenu, .leaderstats {
                 width: calc(100% - 16px);
                 
                 .select {

@@ -5,4 +5,4 @@
 **•** Go to this application's website or copy this repository and run the project locally on your computer
 
 ### 😍 HOW DOES IT LOOK?
-![image](https://user-images.githubusercontent.com/75419729/213652462-f9d6c017-e1b3-49cf-ad8e-5bb7af5b3665.png)
+![image](https://user-images.githubusercontent.com/75419729/213688403-f75ab8b8-c803-4b64-bf60-7ec4cb5b5088.png)

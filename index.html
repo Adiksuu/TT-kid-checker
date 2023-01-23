@@ -12,6 +12,7 @@
 <body onload="load()">
 
     <section class="home" id="home">
+        <div class="progress"></div>
         <div class="content">
             <h1 class="title">Are you a <span><i class="fab fa-tiktok"></i> TikTok</span> kid?</h1>
             <div class="box hide" id="gameStart">
@@ -36,7 +37,7 @@
             </div>
             <div class="gameMenu hide" id="gameMenuStart">
                 <button onclick="startGame();">PLAY</button>
-                <!-- <button onclick="toLeaderstats();">LEADERBOARD</button> -->
+                <button onclick="toStore();">STORE</button>
             </div>
             <div class="profile hide" id="profile">
                 <div class="top">
@@ -54,16 +55,36 @@
                     <button onclick="sumAvatar();"><i class="fas fa-check"></i></button>
                 </div>
             </div>
-            <!-- <div class="leaderstats hide" id="leaderstats">
-                <div class="stats">
-                    <p>TOP 1 <span id="top_1_name">NaN</span> - <span id="top_1_per">100%</span></p>
-                    <p>TOP 2 <span id="top_2_name">NaN</span> - <span id="top_2_per">100%</span></p>
-                    <p>TOP 3 <span id="top_3_name">NaN</span> - <span id="top_3_per">100%</span></p>
+
+            <div class="shop hide" id="shop">
+                <div class="shop_close" onclick="toStore()">
+                    <p><span><i class="fas fa-times"></i></span></p>
                 </div>
-                <div class="return">
-                    <button onclick="toMenu();">BACK TO MENU</button>
+                <div class="shop_top">
+                    <h1>STORE</h1>
+                    <p>Buy items for time-money</p>
                 </div>
-            </div> -->
+                <div class="shop_shop_money" onclick="money_tip()">
+                    <p><span id="money">0</span>$</p>
+                </div>
+                <div class="shop_money_help">
+                    <p>60sec on page = 1$</p>
+                </div>
+                <div class="shop_items">
+                    <div class="shop_item">
+                        <div class="shop_item_content">
+                            <div class="item_info">
+                                <h1>AVATAR CHANGE</h1>
+                                <p>Get a access to change avatar feature</p>
+                            </div>
+                            <div class="item_buy">
+                                <button onclick="buy_item(0)">BUY 2$</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
             <div class="result">
                 <h2><span id="result_name"></span> You are a tiktok kid in <span id="result_score">100%</span></h2>
             </div>

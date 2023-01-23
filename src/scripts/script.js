@@ -63,6 +63,13 @@ const completeText = {
     90: "You are a child of tiktok, put away tiktok for a long period of time or try to reduce its use significantly!"
 }
 
+const progress = document.querySelector('.progress')
+progress.style.width = '0%'
+
+let avatarAccess = false
+let cash = 0
+let money = 0
+
 function nextQuestion() {
     nextSound.play() 
     if (questionNum == 2) {
@@ -72,6 +79,7 @@ function nextQuestion() {
         option_3.classList.add('hide')
         option_4.classList.add('hide')
         option_5.classList.add('hide')
+        progress.style.width = '33%'
     } 
     else if (questionNum == 3) {
         questionTitle.innerHTML = questions[3]
@@ -79,8 +87,10 @@ function nextQuestion() {
         option_2.innerHTML = buttonQuestion_3[2]
         option_3.innerHTML = buttonQuestion_3[3]
         option_3.classList.remove('hide')
+        progress.style.width = '66%'
     }
     else if (questionNum > 3) {
+        progress.style.width = '100%'
         if (score == 0) {
             questionTitle.innerHTML = `You Completed The Test in ${timeSpend} seconds! <br> <span>${completeText[0]}</span>`
         }
@@ -191,21 +201,44 @@ function toMenu() {
 const avatarInput = document.querySelector('#avatarInput')
 const urlType = document.querySelector('#urlType')
 function changeAvatar() {
-    urlType.classList.toggle('show')
+    if (avatarAccess == true) {
+        urlType.classList.toggle('show')
+    }
+}
+const shopMenu = document.querySelector('#shop')
+const moneyBox = document.querySelector('#money')
+function toStore() {
+    shopMenu.classList.toggle('hide')
 }
 
 
 window.setInterval(() => {
+    moneyBox.innerHTML = money
     let name = document.querySelector('#nickname')
     nickname = name.value
 })
+
+function buy_item(a) {
+    if (arguments[0] == 0) {
+        if (money >= 2) {
+            if (avatarAccess == false) {
+                avatarAccess = true
+                money = 0
+            }
+        }
+    }
+    save()
+}
 
 function save() {
     let Save = {
         userName: userName,
         latestTime: latestTime,
         latestPer: latestPer,
-        avatar: avatar
+        avatar: avatar,
+        avatarAccess: avatarAccess,
+        cash: cash,
+        money: money,
     };
     localStorage.setItem("Saved", JSON.stringify(Save));
 }
@@ -219,6 +252,12 @@ function load() {
     latestPer = SaveGame.latestPer;
     if (typeof SaveGame.avatar !== "undefined")
     avatar = SaveGame.avatar;
+    if (typeof SaveGame.avatarAccess !== "undefined")
+    avatarAccess = SaveGame.avatarAccess;
+    if (typeof SaveGame.cash !== "undefined")
+    cash = SaveGame.cash;
+    if (typeof SaveGame.money !== "undefined")
+    money = SaveGame.money;
     checkName();
 }
 function startGame() {
@@ -279,6 +318,8 @@ window.setInterval(() => {
 const timeCheck = document.querySelector('#timeCheck')
 
 window.setInterval(() => {
+    cash += 1
+    save()
     if (window.location.search == '?game=start' && endQuiz == false) {
         timeSpend++
         timeCheck.innerHTML = `${timeSpend} sec`
@@ -289,4 +330,25 @@ const avatarToChange = document.querySelector('#avatarToChange')
 
 window.setInterval(() => {
     avatarToChange.src = avatar
+
+    if (cash >= 60) {
+        cash = 0
+        money += 1
+    }
 })
+
+window.setInterval(() => {
+    if (avatarAccess == false) {
+        avatarToChange.style.cursor = 'no-drop'
+    } else {
+        avatarToChange.style.cursor = 'pointer'
+    }
+})
+const shop_top = document.querySelector('.shop_money_help')
+function money_tip() {
+    if (shop_top.style.display == 'none') {
+        shop_top.style.display = 'block'
+    } else {
+        shop_top.style.display = 'none'
+    }
+}

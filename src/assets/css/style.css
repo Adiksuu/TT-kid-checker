@@ -15,6 +15,13 @@
   background: #0f0f0f;
   height: 100vh;
 }
+.home .progress {
+  width: 0%;
+  height: 5px;
+  background: linear-gradient(to right, #ee0049, #00e7dc);
+  position: absolute;
+  top: 0;
+}
 .home .icons {
   display: flex;
   flex-direction: column;
@@ -58,7 +65,7 @@
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
 }
-.home .content .box, .home .content .register, .home .content .gameMenu, .home .content .leaderstats {
+.home .content .box, .home .content .register, .home .content .gameMenu {
   margin-top: 48px;
   border-radius: 16px;
   width: 65%;
@@ -69,7 +76,7 @@
   justify-content: center;
   position: relative;
 }
-.home .content .box .time, .home .content .register .time, .home .content .gameMenu .time, .home .content .leaderstats .time {
+.home .content .box .time, .home .content .box .shop_shop_money, .home .content .register .time, .home .content .register .shop_shop_money, .home .content .gameMenu .time, .home .content .gameMenu .shop_shop_money {
   height: 32px;
   width: 72px;
   border-radius: 16px;
@@ -81,26 +88,26 @@
   top: 16px;
   right: 16px;
 }
-.home .content .box .time p, .home .content .register .time p, .home .content .gameMenu .time p, .home .content .leaderstats .time p {
+.home .content .box .time p, .home .content .box .shop_shop_money p, .home .content .register .time p, .home .content .register .shop_shop_money p, .home .content .gameMenu .time p, .home .content .gameMenu .shop_shop_money p {
   font-size: 16px;
   font-weight: 400;
 }
-.home .content .box p, .home .content .register p, .home .content .gameMenu p, .home .content .leaderstats p {
+.home .content .box p, .home .content .register p, .home .content .gameMenu p {
   color: #fff;
   font-size: 20px;
   text-transform: uppercase;
 }
-.home .content .box p span, .home .content .register p span, .home .content .gameMenu p span, .home .content .leaderstats p span {
+.home .content .box p span, .home .content .register p span, .home .content .gameMenu p span {
   font-size: 17px;
   text-transform: capitalize;
   text-decoration: underline;
   color: #00e7dc;
 }
-.home .content .box p:hover, .home .content .register p:hover, .home .content .gameMenu p:hover, .home .content .leaderstats p:hover {
+.home .content .box p:hover, .home .content .register p:hover, .home .content .gameMenu p:hover {
   color: #ee0049;
   cursor: pointer;
 }
-.home .content .box .name input, .home .content .register .name input, .home .content .gameMenu .name input, .home .content .leaderstats .name input {
+.home .content .box .name input, .home .content .register .name input, .home .content .gameMenu .name input {
   padding: 3px 9px;
   border-radius: 16px 0 0 16px;
   background: rgba(255, 255, 255, 0.062745098);
@@ -108,17 +115,17 @@
   height: 32px;
   width: 196px;
 }
-.home .content .box .name #enterName, .home .content .register .name #enterName, .home .content .gameMenu .name #enterName, .home .content .leaderstats .name #enterName {
+.home .content .box .name #enterName, .home .content .register .name #enterName, .home .content .gameMenu .name #enterName {
   width: 32px;
   border-radius: 0 16px 16px 0;
 }
-.home .content .box .select, .home .content .box .name, .home .content .register .select, .home .content .register .name, .home .content .gameMenu .select, .home .content .gameMenu .name, .home .content .leaderstats .select, .home .content .leaderstats .name {
+.home .content .box .select, .home .content .box .name, .home .content .register .select, .home .content .register .name, .home .content .gameMenu .select, .home .content .gameMenu .name {
   margin-top: 48px;
   display: flex;
   gap: 8px;
   justify-content: center;
 }
-.home .content .box .select button, .home .content .box .name button, .home .content .register .select button, .home .content .register .name button, .home .content .gameMenu .select button, .home .content .gameMenu .name button, .home .content .leaderstats .select button, .home .content .leaderstats .name button {
+.home .content .box .select button, .home .content .box .name button, .home .content .register .select button, .home .content .register .name button, .home .content .gameMenu .select button, .home .content .gameMenu .name button {
   height: 32px;
   width: 96px;
   border-radius: 16px;
@@ -128,10 +135,10 @@
   font-size: 16px;
   cursor: pointer;
 }
-.home .content .box .select button.hide, .home .content .box .name button.hide, .home .content .register .select button.hide, .home .content .register .name button.hide, .home .content .gameMenu .select button.hide, .home .content .gameMenu .name button.hide, .home .content .leaderstats .select button.hide, .home .content .leaderstats .name button.hide {
+.home .content .box .select button.hide, .home .content .box .name button.hide, .home .content .register .select button.hide, .home .content .register .name button.hide, .home .content .gameMenu .select button.hide, .home .content .gameMenu .name button.hide {
   display: none;
 }
-.home .content .box .select button:hover, .home .content .box .name button:hover, .home .content .register .select button:hover, .home .content .register .name button:hover, .home .content .gameMenu .select button:hover, .home .content .gameMenu .name button:hover, .home .content .leaderstats .select button:hover, .home .content .leaderstats .name button:hover {
+.home .content .box .select button:hover, .home .content .box .name button:hover, .home .content .register .select button:hover, .home .content .register .name button:hover, .home .content .gameMenu .select button:hover, .home .content .gameMenu .name button:hover {
   background: rgba(255, 255, 255, 0.062745098);
   color: #ee0049;
 }
@@ -179,6 +186,105 @@
 .home .content .url.show {
   display: block;
 }
+.home .content .shop {
+  width: 50%;
+  height: 224px;
+  background: #2b2b2b;
+  position: fixed;
+  top: calc(50% - 112px);
+  border-radius: 16px;
+}
+.home .content .shop .shop_close {
+  position: absolute;
+  top: 16px;
+  left: 16px;
+}
+.home .content .shop .shop_close p {
+  height: 32px;
+  width: 32px;
+  border-radius: 16px;
+  background: rgba(255, 255, 255, 0.062745098);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: absolute;
+  cursor: pointer;
+  color: #fff;
+}
+.home .content .shop .shop_top {
+  width: 100%;
+}
+.home .content .shop .shop_top h1 {
+  font-weight: 600;
+  color: #00e7dc;
+  font-size: 26px;
+}
+.home .content .shop .shop_top p {
+  font-weight: 500;
+  color: #c5c5c5;
+  font-size: 16px;
+}
+.home .content .shop .shop_money_help {
+  background: rgba(255, 255, 255, 0.062745098);
+  width: 72px;
+  border-radius: 16px;
+  position: absolute;
+  right: 16px;
+  padding: 3px;
+  top: 56px;
+  display: none;
+}
+.home .content .shop .shop_money_help p {
+  font-size: 10px;
+  color: #fff;
+}
+.home .content .shop .shop_shop_money {
+  height: 32px;
+  width: 72px;
+  border-radius: 16px;
+  background: rgba(255, 255, 255, 0.062745098);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: absolute;
+  top: 16px;
+  right: 16px;
+  cursor: help;
+}
+.home .content .shop .shop_shop_money p {
+  color: #fff;
+  font-weight: 400;
+}
+.home .content .shop .shop_items {
+  margin-top: 16px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+}
+.home .content .shop .shop_items .shop_item .shop_item_content .item_info h1 {
+  color: #fff;
+  font-weight: 600;
+}
+.home .content .shop .shop_items .shop_item .shop_item_content .item_info p {
+  color: #c5c5c5;
+  font-weight: 400;
+}
+.home .content .shop .shop_items .shop_item .shop_item_content .item_buy button {
+  width: 128px;
+  height: 32px;
+  border-radius: 16px;
+  margin-top: 8px;
+  background: rgba(255, 255, 255, 0.0823529412);
+  color: #fff;
+  font-weight: 600;
+  font-size: 18px;
+  cursor: pointer;
+}
+.home .content .shop .shop_items .shop_item .shop_item_content .item_buy button:hover {
+  background: rgba(255, 255, 255, 0.062745098);
+  color: #ee0049;
+}
 .home .content .profile {
   background: rgba(255, 255, 255, 0.0235294118);
   margin-top: 64px;
@@ -221,26 +327,6 @@
 .home .content .register .name {
   gap: 0;
 }
-.home .content .leaderstats .stats {
-  gap: 16px;
-  display: flex;
-  flex-direction: column;
-}
-.home .content .leaderstats .return {
-  margin-top: 16px;
-}
-.home .content .leaderstats .return button {
-  padding: 3px 9px;
-  border-radius: 16px;
-  height: 32px;
-  background: rgba(255, 255, 255, 0.062745098);
-  cursor: pointer;
-  color: #fff;
-  width: 196px;
-}
-.home .content .leaderstats .return button:hover {
-  background: rgba(255, 255, 255, 0.0235294118);
-}
 .home .content .gameMenu {
   display: flex;
   flex-direction: column;
@@ -260,7 +346,7 @@
   background: rgba(255, 255, 255, 0.0235294118);
   color: #00e7dc;
 }
-.home .content .box.hide, .home .content .register.hide, .home .content .gameMenu.hide, .home .content .leaderstats.hide, .home .content .profile.hide {
+.home .content .box.hide, .home .content .register.hide, .home .content .gameMenu.hide, .home .content .profile.hide, .home .content .shop.hide {
   display: none;
 }
 .home .content .result {
@@ -280,10 +366,10 @@
 }
 
 @media screen and (max-width: 868px) {
-  .home .content .box, .home .content .register, .home .content .gameMenu, .home .content .leaderstats, .home .content .profile {
+  .home .content .box, .home .content .register, .home .content .gameMenu, .home .content .profile, .home .content .shop {
     width: calc(100% - 16px);
   }
-  .home .content .box .select, .home .content .register .select, .home .content .gameMenu .select, .home .content .leaderstats .select, .home .content .profile .select {
+  .home .content .box .select, .home .content .register .select, .home .content .gameMenu .select, .home .content .profile .select, .home .content .shop .select {
     flex-wrap: wrap;
   }
 }
